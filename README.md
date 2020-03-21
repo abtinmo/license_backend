@@ -3,7 +3,7 @@
 
 clone from this repo:
 
-    git clone https://gitlab.com/linkosi/digitalglobe_media_collector
+    git clone https://gitlab.com/abtinmo/license_backend
     
 install requirements:
 
