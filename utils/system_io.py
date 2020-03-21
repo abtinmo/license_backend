@@ -17,7 +17,9 @@ def get_license_list():
 
 def prepare_data():
     if not os.path.exists("./license-list-data"):
-        run_bash_sub_prosses("git clone https://github.com/spdx/license-list-data")
+        run_bash_sub_prosses(
+            "git clone https://github.com/spdx/license-list-data"
+            )
     else:
         run_bash_sub_prosses("git -C license-list-data pull")
 
