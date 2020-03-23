@@ -20,7 +20,7 @@ async def list_result(request):
     """
     searched_list = get_searched_data(request.raw_args, license_list)
     paginated_list, is_next_query, is_previous_query = get_paginated_data(
-        request.raw_args,
+        request,
         searched_list
     )
     return json(
