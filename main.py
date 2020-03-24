@@ -1,8 +1,8 @@
 from sanic import Sanic
-from sanic.response import json
+from sanic.response import json, file
 
 from utils import (
-    get_license_list, get_license_or_404, prepare_data,
+    get_license_list, prepare_data,
     get_paginated_data, get_searched_data
 )
 
@@ -37,7 +37,9 @@ async def list_result(request):
 
 @app.route("/license/<license_name:string>/", methods=["GET"])
 async def detail_result(request, license_name):
-    return await get_license_or_404(license_name, license_list)
+    return await file("./license-list-data/html/{0}.html".format(license_name))
+
+    # return await get_license_or_404(license_name, license_list)
 
 
 if __name__ == "__main__":

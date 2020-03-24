@@ -2,15 +2,14 @@ import os
 import subprocess
 
 import aiofiles
-import ujson
 from sanic.response import json
 
 
 def get_license_list():
     return sorted(
         [
-            item.replace(".json", "")
-            for item in os.listdir("./license-list-data/json/details/")
+            item.replace(".html", "")
+            for item in os.listdir("./license-list-data/html/")
         ]
     )
 
@@ -31,7 +30,11 @@ def run_bash_sub_prosses(bash_command):
 
 async def get_license(license_name):
     async with aiofiles.open(
-        "./license-list-data/json/details/{0}.json".format(license_name),
+        "./license-list-data/html/{0}.html".format(license_name),
         "r"
     ) as f:
-        return json(ujson.loads(await f.read()))
+        return json(
+            {
+                "data": await f.read()
+            }
+        )
