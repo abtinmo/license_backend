@@ -1,4 +1,3 @@
-
 ## Running
 
 clone from this repo:
@@ -12,6 +11,11 @@ install requirements:
 run:
 
     python3 main.py
+
+if you want to use docker:
+
+    docker build -t license_app .
+    docker run -it -p 8000:8000 -d license_app
 
 
 ## Licence
